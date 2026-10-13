@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark">
+  <title>Chat Studio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-top">
+        <a class="brand" href="#" aria-label="Chat Studio home">
+          <span class="brand-mark">✳</span><span>Chat Studio</span>
+        </a>
+        <button class="icon-btn mobile-close" id="closeSidebar" aria-label="Close sidebar">✕</button>
+      </div>
+      <button class="new-chat" id="newChat"><span class="plus">＋</span> New chat <kbd>Ctrl K</kbd></button>
+      <div class="sidebar-label">YOUR CHATS</div>
+      <div class="chat-list" id="chatList"></div>
+      <div class="sidebar-bottom">
+        <div class="profile-avatar">S</div>
+        <div class="profile-copy"><strong>My workspace</strong><span>Personal assistant</span></div>
+        <button class="icon-btn" id="settingsBtn" aria-label="Settings" title="Settings">⚙</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="icon-btn menu-btn" id="openSidebar" aria-label="Open sidebar">☰</button>
+          <span class="mobile-brand">Chat Studio</span>
+          <span class="model-pill">Assistant <span class="tiny-dot"></span></span>
+        </div>
+        <div class="topbar-right">
+          <button class="text-btn" id="clearChat">Clear chat</button>
+          <button class="icon-btn" id="themeBtn" aria-label="Toggle theme" title="Toggle theme">☼</button>
+        </div>
+      </header>
+
+      <section class="conversation" id="conversation" aria-live="polite">
+        <div class="welcome" id="welcome">
+          <div class="welcome-mark">✳</div>
+          <h1>What can I help with?</h1>
+          <p>Ask a question, explore an idea, or get something done.</p>
+          <div class="suggestions">
+            <button class="suggestion" data-prompt="Explain a difficult concept in simple words."><span>✧</span><strong>Learn something</strong><small>Break down a tricky concept</small></button>
+            <button class="suggestion" data-prompt="Help me brainstorm a creative project idea."><span>⌘</span><strong>Brainstorm ideas</strong><small>Turn a thought into a plan</small></button>
+            <button class="suggestion" data-prompt="Help me debug this code step by step."><span>⌁</span><strong>Write or debug code</strong><small>Work through a coding problem</small></button>
+            <button class="suggestion" data-prompt="Help me create a realistic study plan for this week."><span>◷</span><strong>Make a plan</strong><small>Organize your next steps</small></button>
+          </div>
+        </div>
+        <div class="messages" id="messages"></div>
+      </section>
+
+      <footer class="composer-area">
+        <form class="composer" id="chatForm">
+          <textarea id="messageInput" rows="1" placeholder="Message Chat Studio..." aria-label="Message" maxlength="12000"></textarea>
+          <div class="composer-bottom">
+            <div class="composer-hint"><span class="hint-icon">＋</span><span>AI can make mistakes. Check important information.</span></div>
+            <button class="send-btn" id="sendBtn" type="submit" aria-label="Send message" disabled>↑</button>
+          </div>
+        </form>
+        <div class="footer-note">Chat Studio · Your conversations are saved in this browser</div>
+      </footer>
+    </main>
+  </div>
+
+  <div class="modal-backdrop hidden" id="settingsModal">
+    <section class="settings-modal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+      <div class="modal-heading"><h2 id="settingsTitle">Settings</h2><button class="icon-btn" id="closeSettings" aria-label="Close settings">✕</button></div>
+      <p class="settings-description">Choose how Chat Studio responds.</p>
+      <label class="setting-row"><span><strong>Use real AI</strong><small>Connects to your local backend and AI provider.</small></span><input type="checkbox" id="realAiToggle"></label>
+      <div class="settings-note" id="connectionNote">Demo mode is active. Replies are generated locally and do not come from a real AI model.</div>
+      <div class="modal-actions"><button class="text-btn" id="exportChats">Export chats</button><button class="primary-btn" id="doneSettings">Done</button></div>
+    </section>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
