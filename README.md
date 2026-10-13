@@ -1,6 +1,8 @@
 # Chat Studio
 
 A responsive ChatGPT-inspired chat UI built with HTML, CSS, and vanilla JavaScript. It includes local conversation history, new/delete/clear chat, export, theme toggle, copy replies, responsive sidebar, and demo mode. An optional Node.js backend connects to Gemini for real AI responses.
+<img width="959" height="440" alt="image" src="https://github.com/user-attachments/assets/d07016e7-44c5-4eb8-8e65-b89c189d1d29" />
+
 
 ## 1. Open the frontend
 
